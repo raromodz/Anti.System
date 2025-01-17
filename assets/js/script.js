@@ -208,7 +208,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to generate ASCII art
   function getAsciiArt() {
       return `
-      Ascii aqui
+      ...... .
+....//,......,///,..
+...//////*,////////..
+..//////////////////...
+../////,,/////*,,/////...
+.////*.....//....,/////...
+*///.............../////*..
+                 ...*/////... 
+                    .../////,. 
+                      ..*/////. 
+                        .*//// .  
+                             .
+
+                             
   `;
   }
 
