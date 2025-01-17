@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
       "User: unknown",
       "IP: Loading...",
       "System: Loading...", // System information placeholder
-      "Bio Loaded",
-      "Press Enter To Continue",
+      "Painel Carregado",
+      "Aperte Enter Ou Clique",
   ];
   var currentIndex = 0;
 
@@ -208,40 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to generate ASCII art
   function getAsciiArt() {
       return `
-                                                                                                                                                         
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                       ...... .                                                                       
-                                                                 ..//,......,///,..                                                                   
-                                                                ..//////*,////////..                                                                  
-                                                               ..//////////////////...                                                                
-                                                              ../////,,/////*,,/////...                                                               
-                                                              .////*.....//....,/////...                                                              
-                                                              *///.............../////*..                                                             
-                                                                               ...*/////...                                                           
-                                                                                 .../////,.                                                           
-                                                                                   ..*/////.                                                          
-                                                                                      .*////                                                          
-                                                                                          .                                                           
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                      
-                                                                                                                                                                       
+      Ascii aqui
   `;
   }
 
