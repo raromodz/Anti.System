@@ -1,23 +1,38 @@
+
 <style>
 body {
-background-color: #FFFFFF;
-margin: 0;
-padding: 0;
+background-color: #000000;
+color: #FF0000;
 }
 
-.botao-voltar {
-position: absolute;
-top: 10px;
-left: 10px;
+.container {
+width: 80%;
+margin: 40px auto;
+text-align: center;
+}
+
+.botao {
 background-color: #FF0000;
-color: #FFFFFF;
-padding: 10px 20px;
+color: #000;
+padding: 20px 40px;
 border: none;
-border-radius: 5px;
+border-radius: 10px;
 cursor: pointer;
+margin: 20px;
+font-size: 24px;
 }
 
-.botao-voltar:hover {
-background-color: #CC0000;
+.foto {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+margin: 20px auto;
+}
+
+.creditos {
+font-size: 12px;
+color: #FFF;
+text-align: center;
+margin-top: 20px;
 }
 </style>
