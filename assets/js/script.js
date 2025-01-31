@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
 
 Made By Raro Mods
-Make by Lord
 
+reciving filés...
 ♟ starting...
 Loading Javascript ...
 Loading css..
