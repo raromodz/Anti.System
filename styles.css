@@ -1,288 +1,251 @@
-/********** Template CSS **********/
-:root {
-    --primary: #FF0000;
-    --secondary: ##6c5ce7;
-    --light: #6C7293;
-    --dark: #000000;
+/* Reset default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden; /* Hide overflow to prevent scrolling */
+  background-color: black; /* Set background color to black */
 }
 
-.back-to-top {
-    position: fixed;
-    display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
+/* Define custom cursor */
+.custom-cursor {
+  cursor: url('./assets/cursor/pointer.png'), auto !important;
 }
 
-
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
+/* Terminal styles */
+#terminal {
+  position: fixed; /* Fixed position to keep it always visible */
+  top: 50px; /* Adjust initial top position as needed */
+  left: 50px; /* Adjust initial left position as needed */
+  width: 600px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  background-color: #1e1e1e; /* Terminal background color */
+  color: #ffffff; /* Terminal text color */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 1000; /* Ensure it's above other elements */
+  border: 2px solid #4d4d4d; /* Terminal border color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Terminal shadow */
 }
 
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
+@media screen and (max-width: 600px) {
+  /* Adjust styles for smaller screens, such as phones */
+  #terminal {
+      max-width: 90%; /* Increase width for smaller screens */
+  }
+}
+/* Terminal header styles */
+#terminal-header {
+  background-color: #2d2d2d; /* Header background color */
+  border-top-left-radius: 10px; /* Rounded corners for top left */
+  border-top-right-radius: 10px; /* Rounded corners for top right */
+  padding: 10px; /* Add padding */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align buttons to the left */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-
-/*** Button ***/
-.btn {
-    transition: .5s;
+/* Terminal header hover effect */
+#terminal-header:hover {
+  background-color: #333333; /* Darken header background on hover */
 }
 
-.btn-square {
-    width: 38px;
-    height: 38px;
+/* Terminal buttons styles */
+#terminal-buttons {
+  display: flex; /* Use flexbox for layout */
+  gap: 10px; /* Add gap between buttons */
 }
 
-.btn-sm-square {
-    width: 32px;
-    height: 32px;
+/* Individual terminal button styles */
+.terminal-button {
+  width: 15px; /* Adjust width as needed */
+  height: 15px; /* Adjust height as needed */
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer; /* Set cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.btn-lg-square {
-    width: 48px;
-    height: 48px;
+/* Terminal button hover effect */
+.terminal-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background on hover */
 }
 
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    border-radius: 50px;
+/* Close button styles */
+#close-button {
+  background-color: #FF5F57; /* Close button color */
 }
 
-
-/*** Layout ***/
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--secondary);
-    transition: 0.5s;
-    z-index: 999;
+/* Minimize button styles */
+#minimize-button {
+  background-color: #FFBD2E; /* Minimize button color */
 }
 
-.content {
-    margin-left: 250px;
-    min-height: 100vh;
-    background: var(--dark);
-    transition: 0.5s;
+/* Maximize button styles */
+#maximize-button {
+  background-color: #28CA42; /* Maximize button color */
 }
 
-@media (min-width: 992px) {
-    .sidebar {
-        margin-left: 0;
-    }
-
-    .sidebar.open {
-        margin-left: -250px;
-    }
-
-    .content {
-        width: calc(100% - 250px);
-    }
-
-    .content.open {
-        width: 100%;
-        margin-left: 0;
-    }
+/* Terminal content styles */
+#terminal-content {
+  padding: 20px; /* Add padding */
+  height: calc(100% - 40px); /* Adjust for header height and padding */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  user-select: none; /* Disable text selection */
 }
 
-@media (max-width: 991.98px) {
-    .sidebar {
-        margin-left: -250px;
-    }
-
-    .sidebar.open {
-        margin-left: 0;
-    }
-
-    .content {
-        width: 100%;
-        margin-left: 0;
-    }
+/* Terminal text styles */
+#terminal-text {
+  margin: 0;
+  padding: 0;
+  font-size: 14px; /* Terminal text size */
+  line-height: 1.5; /* Line height */
+  overflow: hidden; /* Hide overflow */
+  white-space: pre-line; /* Preserve line breaks */
 }
 
-
-/*** Navbar ***/
-.sidebar .navbar .navbar-nav .nav-link {
-    padding: 7px 20px;
-    color: var(--light);
-    font-weight: 500;
-    border-left: 3px solid var(--secondary);
-    border-radius: 0 30px 30px 0;
-    outline: none;
+/* Video background styles */
+#video-background {
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of viewport width */
+  height: 100vh; /* 100% of viewport height */
+  z-index: -1; /* Behind other content */
 }
 
-.sidebar .navbar .navbar-nav .nav-link:hover,
-.sidebar .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-    background: var(--dark);
-    border-color: var(--primary);
+/* Scan lines effect */
+#video-background::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 2px);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.sidebar .navbar .navbar-nav .nav-link i {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark);
-    border-radius: 40px;
+/* Video styles */
+#myVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire viewport while maintaining aspect ratio */
+  z-index: 0; /* Behind other content */
 }
 
-.sidebar .navbar .navbar-nav .nav-link:hover i,
-.sidebar .navbar .navbar-nav .nav-link.active i {
-    background: var(--secondary);
+/* Positioning classes */
+.top-left {
+  top: 0;
+  left: 0;
 }
 
-.sidebar .navbar .dropdown-toggle::after {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: .5s;
+.top-right {
+  top: 0;
+  right: 0;
 }
 
-.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
-    transform: rotate(-180deg);
+.bottom-left {
+  bottom: 0;
+  left: 0;
 }
 
-.sidebar .navbar .dropdown-item {
-    padding-left: 25px;
-    border-radius: 0 30px 30px 0;
-    color: var(--light);
+.bottom-right {
+  bottom: 0;
+  right: 0;
 }
 
-.sidebar .navbar .dropdown-item:hover,
-.sidebar .navbar .dropdown-item.active {
-    background: var(--dark);
+/* Blurred box styles */
+#blurred-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%; /* Adjust width as needed */
+  height: 40%; /* Adjust height as needed */
+  background-color: rgba(255, 255, 255, 0); /* Transparent background */
+  border-radius: 20px; /* Rounded corners */
+  border: 2px solid rgba(255, 255, 255, 0); /* Dark border with transparency */
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.5); /* Slightly blurred shadow */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  z-index: 999; /* Above other content */
+  display: none; /* Initially hidden */
+  padding: 20px; /* Add padding */
+  text-align: center; /* Center text horizontally */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.content .navbar .navbar-nav .nav-link {
-    margin-left: 25px;
-    padding: 12px 0;
-    color: var(--light);
-    outline: none;
+/* Blurred box hover effect */
+#blurred-box:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background on hover */
 }
 
-.content .navbar .navbar-nav .nav-link:hover,
-.content .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+/* Profile picture styles */
+#blurred-box img {
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  border-radius: 50%; /* Rounded corners */
+  margin-bottom: 20px; /* Adjust margin as needed */
 }
 
-.content .navbar .sidebar-toggler,
-.content .navbar .navbar-nav .nav-link i {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark);
-    border-radius: 40px;
+/* Links styles */
+.links {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 1001; /* Ensure icons are above the blurred box */
 }
 
-.content .navbar .dropdown-item {
-    color: var(--light);
+.links a {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.content .navbar .dropdown-item:hover,
-.content .navbar .dropdown-item.active {
-    background: var(--dark);
+/* Link hover effect */
+.links a:hover {
+  color: #ff00ff;
 }
 
-.content .navbar .dropdown-toggle::after {
-    margin-left: 6px;
-    vertical-align: middle;
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: .5s;
+.links a i {
+  margin-right: 5px;
+  font-size: 24px;
 }
 
-.content .navbar .dropdown-toggle[aria-expanded=true]::after {
-    transform: rotate(-180deg);
+/* Hover styles for links */
+.links a:hover {
+  text-decoration: underline;
 }
 
-@media (max-width: 575.98px) {
-    .content .navbar .navbar-nav .nav-link {
-        margin-left: 15px;
-    }
+/* User Description styles */
+.user-description {
+  margin-bottom: 20px; /* Adjust margin as needed */
 }
 
-
-/*** Date Picker ***/
-.bootstrap-datetimepicker-widget.bottom {
-    top: auto !important;
+.user-description p {
+  margin: 0; /* Remove default margin */
+  padding: 10px; /* Add padding */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.bootstrap-datetimepicker-widget .table * {
-    border-bottom-width: 0px;
+/* User description hover effect */
+.user-description:hover p {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background on hover */
 }
 
-.bootstrap-datetimepicker-widget .table th {
-    font-weight: 500;
+#avatar-frame {
+  position: absolute; /* Overlay on top of the profile picture */
+  top: 15%; /* Adjust to move it higher (e.g., reduce from 50% to 40%) */
+  left: 50%; /* Center horizontally within #blurred-box */
+  transform: translate(-50%, -50%); /* Adjust for proper centering */
+  width: 15% ; /* Slightly larger than the profile picture */
+  height: 20%; /* Slightly larger than the profile picture */
+  z-index: 1000; /* Ensure it is above the profile picture */
+  pointer-events: none; /* Prevent interaction with the frame */
+  display: none; /* Initially hidden */
 }
-
-.bootstrap-datetimepicker-widget.dropdown-menu {
-    padding: 10px;
-    border-radius: 2px;
-}
-
-.bootstrap-datetimepicker-widget table td.active,
-.bootstrap-datetimepicker-widget table td.active:hover {
-    background: var(--primary);
-}
-
-.bootstrap-datetimepicker-widget table td.today::before {
-    border-bottom-color: var(--primary);
-}
-
-
-/*** Testimonial ***/
-.progress .progress-bar {
-    width: 0px;
-    transition: 2s;
-}
-
-
-/*** Testimonial ***/
-.testimonial-carousel .owl-dots {
-    margin-top: 24px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 15px;
-    height: 15px;
-    border: 5px solid var(--primary);
-    border-radius: 15px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    background: var(--dark);
-    border-color: var(--primary);
