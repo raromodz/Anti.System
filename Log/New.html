@@ -83,77 +83,59 @@ footer {
     border-radius: 10px;
 }
 
-
+/* Estilizando o card */
 .card {
-  width: 300px;
-  overflow: hidden;
-  background-color: #000;
-  border: 1px solid hsla(0, 0%, 100%, 0.14);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
+    width: 300px;
+    background-color: #000;
+    border: 1px solid hsla(0, 0%, 100%, 0.14);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
 }
 
+/* Corpo do card */
 .card-body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    text-align: center;
 }
 
-.card-title {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  line-height: 1.5rem;
-}
-
-.card-title span {
-  background: linear-gradient(90deg, orange, #f0f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-  background-size: 200% auto;
-  animation: gradientAnimation-218135ab 5s ease infinite;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-}
-
+/* Botão de fechar */
 .close-button {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
+/* Ajuste do ícone de fechar */
 .close-button img {
-  width: 0.7rem;
+    width: 15px;
 }
 
+/* Estilizando o botão de doação */
 .donate-button {
-  width: 100%;
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
-  font-weight: 400;
-  text-decoration: none;
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .donate-button:hover {
-  background-color: #cdcdcd;
+    background-color: #cdcdcd;
 }
 
 </style>
@@ -161,21 +143,18 @@ footer {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="card-body">
-          <h3 class="card-title">
-            Bem Vindo 1%!
-          </h3>
-          <p class="card-text">
-            .
-          </p>
-          <p class="card-text">
-            Voce Pode Ajudar este Projeto Doando Um Apk ou Methodo Para nós!.
-          </p>
-          <p class="card-text">
-            Ajude o  a continuar GRATUITAMENTE e a permanecer vivo doando qualquer valor :D
-        </p>
-          <a href="https://pixgg.com/marcos10pc" class="donate-button" target="_blank">Doar</a>
-        </div>
+<div id="donation-card" class="card">
+    <button class="close-button" onclick="closeDonation()">
+        <img src="close-icon.png" alt="Fechar">
+    </button>
+    <div class="card-body">
+        <h3 class="card-title">Ajude o site!</h3>
+        <p class="card-text">Sua doação mantém nossa plataforma online e em funcionamento.</p>
+        <p class="card-text">Ajude o script a continuar GRATUITAMENTE e a permanecer vivo doando qualquer valor :D</p>
+        <a href="https://pixgg.com/marcos10pc" class="donate-button" target="_blank">Doar</a>
+    </div>
+</div>
+
     <header>
         <h1>ANTI SYSTEM</h1>
         <p class="subtitle">Quebrando padrões, criando o novo.</p>
@@ -201,4 +180,18 @@ footer {
         <p>&copy; 2025 Anti System - Todos os direitos reservados.</p>
     </footer>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Verifica se o usuário já fechou a mensagem anteriormente
+        if (!localStorage.getItem("donationClosed")) {
+            document.getElementById("donation-card").style.display = "block";
+        }
+    });
+
+    function closeDonation() {
+        document.getElementById("donation-card").style.display = "none";
+        localStorage.setItem("donationClosed", "true"); // Salva no localStorage para não mostrar de novo
+    }
+</script>
+
 </html>
