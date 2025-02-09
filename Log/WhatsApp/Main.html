@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo geral */
+body {
+    background-color: #111;
+    color: red;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Subtítulo */
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Parte inferior do cabeçalho (botão + imagem) */
+.header-bottom {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o botão e a imagem */
+}
+
+/* Botão */
+.btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: darkred;
+}
+
+/* Imagem do cabeçalho */
+.header-img {
+    width: 50px; /* Tamanho pequeno */
+    height: auto;
+}
+
+/* Conteúdo principal */
+.content {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #222;
+    border-radius: 10px;
+}
+
+/* Estilizando o card */
+.card {
+    width: 300px;
+    background-color: #000;
+    border: 1px solid hsla(0, 0%, 100%, 0.14);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
+}
+
+/* Corpo do card */
+.card-body {
+    text-align: center;
+}
+
+/* Botão de fechar */
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ajuste do ícone de fechar */
+.close-button img {
+    width: 15px;
+}
+
+/* Estilizando o botão de doação */
+.donate-button {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.donate-button:hover {
+    background-color: #cdcdcd;
+}
+
+</style>
+    <title>Anti System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="donation-card" class="card">
+    <button class="close-button" onclick="closeDonation()">
+        <img src="close-icon.png" alt="Fechar">
+    </button>
+    <div class="card-body">
+        <h3 class="card-title">Ajude o site!</h3>
+        <p class="card-text">Sua doação mantém nossa plataforma online e em funcionamento.</p>
+        <p class="card-text">Ajude o script a continuar GRATUITAMENTE e a permanecer vivo doando qualquer valor :D</p>
+        <a href="https://pixgg.com/marcos10pc" class="donate-button" target="_blank">Doar</a>
+    </div>
+</div>
+
+    <header>
+        <h1>ANTI SYSTEM</h1>
+        <p class="subtitle">Quebrando padrões, criando o novo.</p>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>WhatsApp Painel 🔥</h2>
+            <p>📄 》 Conteúdo Abaixo</p>
+        </section>
+    </main>
+   <header>
+        <h3>Methodos</h3>
+        <p class="subtitle">Methodos Support Ban,Blindagem, Desban etc...!.</p>
+        <div class="header-bottom">
+            <button class="btn" onclick="window.location.href='sobre.html'">Abrir 🔥</button>
+            <img src="https://upload.carisys.online/files/gsnupi.jpeg" alt="Logo" class="header-img">
+        </div>
+    </header>
+
+
+    <footer>
+        <p>&copy; 2025 Anti System - Todos os direitos reservados.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Verifica se o usuário já fechou a mensagem anteriormente
+        if (!localStorage.getItem("donationClosed")) {
+            document.getElementById("donation-card").style.display = "block";
+        }
+    });
+
+    function closeDonation() {
+        document.getElementById("donation-card").style.display = "none";
+        localStorage.setItem("donationClosed", "true"); // Salva no localStorage para não mostrar de novo
+    }
+</script>
+
+</html>
