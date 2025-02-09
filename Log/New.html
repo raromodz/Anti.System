@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anti System</title>
-    <link rel="stylesheet" href="Log/style.css">
 <style>
 /* Reset básico */
 * {
@@ -17,7 +15,7 @@
 /* Estilo geral */
 body {
     background-color: #111;
-    color: #fff;
+    color: red;
     text-align: center;
     padding: 20px;
 }
@@ -27,6 +25,44 @@ header {
     background: #222;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Subtítulo */
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Parte inferior do cabeçalho (botão + imagem) */
+.header-bottom {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o botão e a imagem */
+}
+
+/* Botão */
+.btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: darkred;
+}
+
+/* Imagem do cabeçalho */
+.header-img {
+    width: 50px; /* Tamanho pequeno */
+    height: auto;
 }
 
 /* Conteúdo principal */
@@ -47,11 +83,17 @@ footer {
 }
 
 </style>
+    <title>Anti System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>ANTI SYSTEM</h1>
-        <p>Quebrando padrões, criando o novo.</p>
+        <p class="subtitle">Quebrando padrões, criando o novo.</p>
+        <div class="header-bottom">
+            <button class="btn">Saiba Mais</button>
+            <img src="logo.png" alt="Logo" class="header-img">
+        </div>
     </header>
 
     <main>
@@ -66,4 +108,3 @@ footer {
     </footer>
 </body>
 </html>
-
